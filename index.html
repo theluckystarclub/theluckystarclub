@@ -1,9 +1,9 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>The Lucky Star Club ⭐️</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,8 +22,7 @@
       box-sizing: border-box;
     }
 
-    html,
-    body {
+    html, body {
       margin: 0;
       padding: 0;
       min-height: 100%;
@@ -34,10 +33,6 @@
       font-family: "Questrial", Arial, sans-serif;
       overflow-x: hidden;
     }
-
-    /* =========================
-       MAGIC 8 BALL INTRO
-       ========================= */
 
     .intro {
       position: fixed;
@@ -99,8 +94,6 @@
       letter-spacing: 2px;
     }
 
-    /* Pink star */
-
     .star {
       position: absolute;
       top: 50%;
@@ -122,13 +115,11 @@
 
     .star-text {
       font-family: "Questrial", Arial, sans-serif;
-      font-size: 8px;
+      font-size: 10px;
       font-weight: bold;
-      letter-spacing: 0.4px;
+      letter-spacing: 0.5px;
       fill: white;
     }
-
-    /* Little sparkles */
 
     .intro-stars {
       width: 100%;
@@ -142,10 +133,6 @@
       opacity: 0;
       animation: sparkleAppear 0.8s ease 2s forwards;
     }
-
-    /* =========================
-       MAIN CLUBHOUSE
-       ========================= */
 
     .clubhouse {
       min-height: 100vh;
@@ -246,8 +233,7 @@
       line-height: 1;
       margin-bottom: 8px;
       color: white;
-      text-shadow:
-        3px 3px 0 var(--green);
+      text-shadow: 3px 3px 0 var(--green);
     }
 
     .subtitle {
@@ -280,34 +266,9 @@
       line-height: 1.45;
     }
 
-    .email-form {
-      display: flex;
-      flex-direction: column;
-      gap: 13px;
-    }
-
-    .email-input {
-      width: 100%;
-      border: 2px solid var(--green);
-      border-radius: 999px;
-      padding: 16px 20px;
-      font-family: "Questrial", Arial, sans-serif;
-      font-size: 17px;
-      color: var(--green);
-      outline: none;
-      text-align: center;
-    }
-
-    .email-input::placeholder {
-      color: var(--green);
-      opacity: 1;
-    }
-
-    .email-input:focus {
-      box-shadow: 0 0 0 4px rgba(255, 219, 79, 0.6);
-    }
-
     .join-button {
+      display: inline-block;
+      width: 100%;
       border: 2px solid var(--green);
       background: white;
       color: var(--green);
@@ -318,6 +279,7 @@
       font-weight: bold;
       letter-spacing: 1px;
       cursor: pointer;
+      text-decoration: none;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
@@ -337,10 +299,6 @@
       letter-spacing: 2px;
       text-align: center;
     }
-
-    /* =========================
-       ANIMATIONS
-       ========================= */
 
     @keyframes starAppear {
       0% {
@@ -416,12 +374,7 @@
       }
     }
 
-    /* =========================
-       MOBILE
-       ========================= */
-
     @media (max-width: 600px) {
-
       .eight-ball-wrap {
         width: 270px;
         height: 270px;
@@ -438,7 +391,7 @@
       }
 
       .star-text {
-        font-size: 7px;
+        font-size: 8px;
       }
 
       .intro-stars {
@@ -468,18 +421,13 @@
 
 <body>
 
-  <!-- MAGIC 8 BALL PORTAL -->
-
   <div class="intro">
-
     <div class="eight-ball-wrap">
-
       <div class="eight-ball">
 
         <div class="eight-number">8</div>
 
         <div class="star">
-
           <svg viewBox="0 0 120 120" aria-hidden="true">
 
             <polygon
@@ -487,46 +435,19 @@
               fill="#FF649D"
             />
 
-<text
-  x="60"
-  y="48"
-  text-anchor="middle"
-  class="star-text">
-  HEY
-</text>
-
-<text
-  x="60"
-  y="64"
-  text-anchor="middle"
-  class="star-text">
-  STAR
-</text>
-
-<text
-  x="60"
-  y="80"
-  text-anchor="middle"
-  class="star-text">
-  GIRL
-</text>
+            <text x="60" y="48" text-anchor="middle" class="star-text">HEY</text>
+            <text x="60" y="64" text-anchor="middle" class="star-text">STAR</text>
+            <text x="60" y="80" text-anchor="middle" class="star-text">GIRL</text>
 
           </svg>
-
         </div>
 
       </div>
-
     </div>
 
-    <div class="intro-stars">
-      ✦ ✧ ⭐️ ✧ ✦
-    </div>
-
+    <div class="intro-stars">✦ ✧ ⭐️ ✧ ✦</div>
   </div>
 
-
-  <!-- LUCKY STAR CLUB -->
 
   <main class="clubhouse">
 
@@ -540,39 +461,37 @@
     <div class="dots dots-one">• • •</div>
     <div class="dots dots-two">• • •</div>
 
+
     <h1 class="title">
       <span class="title-the">THE</span>
       LUCKY STAR<br>
       CLUB
     </h1>
 
+
     <div class="subtitle">
-      dream. create. connect.
+      Dream. Create. Connect.
     </div>
+
 
     <section class="message-card">
 
       <p class="message">
         The clubhouse is under construction…<br>
-        Leave your e-mail below and we'll send you the invitation when we go cosmic.
+        Sign up below and we'll send you the invitation when we go cosmic.
       </p>
 
-      <form class="email-form">
-
-        <input
-          class="email-input"
-          type="email"
-          placeholder="enter your email to join the club"
-          aria-label="Your email address"
-        >
-
-        <button class="join-button" type="submit">
-          COUNT ME IN ⭐️
-        </button>
-
-      </form>
+      <a
+        class="join-button"
+        href="https://tally.so/r/D4jyzj"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        COUNT ME IN ⭐️
+      </a>
 
     </section>
+
 
     <div class="footer">
       ✦ count your lucky stars ✦
@@ -582,3 +501,5 @@
 
 </body>
 </html>
+```
+
