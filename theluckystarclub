@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lucky Star Club ⭐️</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: #ff5ebc;
+      color: #fff;
+      font-family: Georgia, "Times New Roman", serif;
+      overflow: hidden;
+    }
+
+    .stars {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      font-size: 24px;
+    }
+
+    .star {
+      position: absolute;
+    }
+
+    .star:nth-child(1) { top: 8%; left: 12%; }
+    .star:nth-child(2) { top: 18%; right: 15%; font-size: 34px; }
+    .star:nth-child(3) { bottom: 15%; left: 18%; font-size: 18px; }
+    .star:nth-child(4) { bottom: 10%; right: 12%; font-size: 30px; }
+    .star:nth-child(5) { top: 38%; left: 6%; font-size: 16px; }
+    .star:nth-child(6) { top: 62%; right: 7%; font-size: 20px; }
+
+    .card {
+      width: min(90%, 700px);
+      padding: 60px 30px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .little-stars {
+      font-size: 22px;
+      letter-spacing: 8px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(3.5rem, 10vw, 7rem);
+      line-height: 0.9;
+      letter-spacing: -4px;
+    }
+
+    .tagline {
+      margin: 28px 0 12px;
+      font-size: 1.35rem;
+      letter-spacing: 2px;
+    }
+
+    .coming {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      max-width: 520px;
+      margin: 0 auto 30px;
+    }
+
+    .signup {
+      display: flex;
+      max-width: 500px;
+      margin: 0 auto;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    input {
+      flex: 1;
+      min-width: 240px;
+      padding: 16px 18px;
+      border: 3px solid white;
+      border-radius: 999px;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    button {
+      padding: 16px 24px;
+      border: 3px solid white;
+      border-radius: 999px;
+      background: white;
+      color: #ff5ebc;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .footer {
+      margin-top: 32px;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="stars">
+    <div class="star">✦</div>
+    <div class="star">★</div>
+    <div class="star">✧</div>
+    <div class="star">⭐</div>
+    <div class="star">⋆</div>
+    <div class="star">✦</div>
+  </div>
+
+  <main class="card">
+    <div class="little-stars">✦ ⋆｡°✩ ⭐️ ✩°｡⋆ ✦</div>
+
+    <h1>Lucky Star<br>Club</h1>
+
+    <div class="tagline">
+      dream. create. connect.
+    </div>
+
+    <p class="coming">
+      The clubhouse is under construction…<br>
+      Leave your star mail below and we'll send you the invitation when the doors open.
+    </p>
+
+    <form class="signup">
+      <input type="email" placeholder="your star mail ✨" required>
+      <button type="submit">COUNT ME IN ⭐️</button>
+    </form>
+
+    <div class="footer">
+      ✦ count your lucky stars ✦
+    </div>
+  </main>
+
+</body>
+</html>
