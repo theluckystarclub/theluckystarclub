@@ -3,176 +3,387 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>The Lucky Star Club ⭐️</title>
 
+  <!-- Questrial -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+
   <style>
+    :root {
+      --pink: #FF649D;
+      --green: #1A7434;
+      --yellow: #FFDB4F;
+      --white: #FFFFFF;
+    }
+
     * {
       box-sizing: border-box;
     }
 
-    body {
+    html, body {
       margin: 0;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background: #ff5ebc;
-      color: #fff;
-      font-family: Georgia, "Times New Roman", serif;
-      overflow: hidden;
+      width: 100%;
+      min-height: 100%;
     }
 
-    .stars {
+    body {
+      min-height: 100vh;
+      background: var(--pink);
+      color: var(--white);
+      font-family: "Questrial", Arial, sans-serif;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* -------------------------
+       STAR FIELD
+    ------------------------- */
+
+    .star-field {
       position: fixed;
       inset: 0;
       pointer-events: none;
-      font-size: 24px;
+      overflow: hidden;
+      z-index: 0;
     }
 
     .star {
       position: absolute;
+      color: var(--white);
+      line-height: 1;
+      user-select: none;
     }
 
-    .star:nth-child(1) {
-      top: 8%;
-      left: 12%;
+    .yellow {
+      color: var(--yellow);
     }
 
-    .star:nth-child(2) {
-      top: 18%;
-      right: 15%;
-      font-size: 34px;
+    .green {
+      color: var(--green);
     }
 
-    .star:nth-child(3) {
-      bottom: 15%;
-      left: 18%;
-      font-size: 18px;
+    .pink-star {
+      color: var(--pink);
     }
 
-    .star:nth-child(4) {
-      bottom: 10%;
-      right: 12%;
-      font-size: 30px;
+    .s1 { top: 7%; left: 7%; font-size: 30px; }
+    .s2 { top: 13%; left: 22%; font-size: 15px; }
+    .s3 { top: 8%; right: 11%; font-size: 54px; }
+    .s4 { top: 24%; right: 19%; font-size: 18px; }
+    .s5 { top: 36%; left: 5%; font-size: 20px; }
+    .s6 { top: 46%; right: 7%; font-size: 28px; }
+    .s7 { bottom: 13%; left: 10%; font-size: 48px; }
+    .s8 { bottom: 22%; left: 26%; font-size: 17px; }
+    .s9 { bottom: 10%; right: 10%; font-size: 33px; }
+    .s10 { bottom: 27%; right: 24%; font-size: 15px; }
+    .s11 { top: 64%; left: 16%; font-size: 14px; }
+    .s12 { top: 58%; right: 17%; font-size: 18px; }
+
+    /* -------------------------
+       LITTLE DOODLE DOTS
+    ------------------------- */
+
+    .dot {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
     }
 
-    .star:nth-child(5) {
-      top: 38%;
-      left: 6%;
-      font-size: 16px;
-    }
+    .d1 { top: 18%; left: 10%; background: var(--yellow); }
+    .d2 { top: 31%; right: 10%; background: var(--white); }
+    .d3 { bottom: 31%; left: 18%; background: var(--green); }
+    .d4 { bottom: 16%; right: 20%; background: var(--yellow); }
 
-    .star:nth-child(6) {
-      top: 62%;
-      right: 7%;
-      font-size: 20px;
-    }
+    /* -------------------------
+       MAIN
+    ------------------------- */
 
-    .card {
-      width: min(90%, 700px);
-      padding: 60px 30px;
+    .page {
       position: relative;
       z-index: 2;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 50px 20px;
     }
 
-    .little-stars {
+    .clubhouse {
+      width: min(920px, 100%);
+      text-align: center;
+    }
+
+    /* little top line */
+
+    .top-stars {
+      color: var(--yellow);
       font-size: 22px;
-      letter-spacing: 8px;
+      letter-spacing: 10px;
       margin-bottom: 20px;
     }
 
-    h1 {
+    /* title */
+
+    .title {
       margin: 0;
-      font-size: clamp(3.5rem, 10vw, 7rem);
-      line-height: 0.9;
-      letter-spacing: -4px;
+      color: var(--white);
+      font-family: "Roca One", "Trebuchet MS", Georgia, serif;
+      font-size: clamp(4rem, 11vw, 8.5rem);
+      line-height: 0.86;
+      letter-spacing: -5px;
+      text-shadow:
+        5px 5px 0 var(--green);
     }
 
+    .title .the {
+      display: block;
+      color: var(--yellow);
+      font-size: 0.42em;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      text-shadow: 3px 3px 0 var(--green);
+    }
+
+    .title .lucky {
+      display: block;
+    }
+
+    .title .star-club {
+      display: block;
+    }
+
+    /* tagline */
+
     .tagline {
-      margin: 28px 0 12px;
-      font-size: 1.35rem;
+      margin-top: 30px;
+      color: var(--yellow);
+      font-family: "Glypher", "Brush Script MT", cursive;
+      font-size: clamp(1.7rem, 4vw, 3rem);
       letter-spacing: 2px;
     }
 
-    .coming {
-      font-size: 1.05rem;
-      line-height: 1.6;
-      max-width: 520px;
-      margin: 0 auto 30px;
+    /* central card */
+
+    .message-card {
+      margin: 42px auto 0;
+      width: min(650px, 100%);
+      padding: 35px 28px 32px;
+      background: var(--white);
+      color: var(--green);
+      border-radius: 30px;
+      border: 5px solid var(--green);
+      box-shadow:
+        10px 10px 0 var(--yellow),
+        0 0 0 4px rgba(255,255,255,0.15);
     }
+
+    .tiny-top {
+      color: var(--pink);
+      font-size: 19px;
+      letter-spacing: 5px;
+      margin-bottom: 18px;
+    }
+
+    .message {
+      margin: 0 auto;
+      max-width: 520px;
+      font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+      line-height: 1.55;
+    }
+
+    .message strong {
+      font-weight: normal;
+      color: var(--pink);
+    }
+
+    /* email signup */
 
     .signup {
+      margin: 28px auto 0;
       display: flex;
-      max-width: 500px;
-      margin: 0 auto;
+      justify-content: center;
+      align-items: stretch;
       gap: 10px;
       flex-wrap: wrap;
-      justify-content: center;
+      width: 100%;
     }
 
-    input {
-      flex: 1;
-      min-width: 240px;
-      padding: 16px 18px;
-      border: 3px solid white;
+    .signup input {
+      flex: 1 1 260px;
+      min-width: 0;
+      padding: 16px 20px;
       border-radius: 999px;
+      border: 3px solid var(--green);
+      background: var(--white);
+      color: var(--green);
+      font-family: "Questrial", Arial, sans-serif;
       font-size: 1rem;
       outline: none;
     }
 
-    button {
-      padding: 16px 24px;
-      border: 3px solid white;
-      border-radius: 999px;
-      background: white;
-      color: #ff5ebc;
-      font-weight: bold;
-      font-size: 1rem;
-      cursor: pointer;
+    .signup input::placeholder {
+      color: var(--green);
+      opacity: 0.75;
     }
 
-    .footer {
+    .signup input:focus {
+      box-shadow: 0 0 0 4px var(--yellow);
+    }
+
+    .signup button {
+      flex: 0 0 auto;
+      padding: 16px 24px;
+      border-radius: 999px;
+      border: 3px solid var(--green);
+      background: var(--yellow);
+      color: var(--green);
+      font-family: "Questrial", Arial, sans-serif;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .signup button:hover {
+      transform: translateY(-3px) rotate(-1deg);
+      background: var(--pink);
+      color: var(--white);
+    }
+
+    /* bottom */
+
+    .count {
       margin-top: 32px;
-      font-size: 0.9rem;
-      opacity: 0.9;
+      color: var(--yellow);
+      font-family: "Glypher", "Brush Script MT", cursive;
+      font-size: 1.25rem;
+      letter-spacing: 2px;
+    }
+
+    .bottom-stars {
+      margin-top: 15px;
+      color: var(--white);
+      font-size: 18px;
+      letter-spacing: 8px;
+    }
+
+    /* mobile */
+
+    @media (max-width: 600px) {
+      .page {
+        padding: 35px 16px;
+      }
+
+      .title {
+        letter-spacing: -3px;
+        text-shadow: 4px 4px 0 var(--green);
+      }
+
+      .message-card {
+        padding: 28px 18px;
+        border-radius: 24px;
+        box-shadow:
+          7px 7px 0 var(--yellow);
+      }
+
+      .signup {
+        flex-direction: column;
+      }
+
+      .signup input,
+      .signup button {
+        width: 100%;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="stars">
-    <div class="star">✦</div>
-    <div class="star">★</div>
-    <div class="star">✧</div>
-    <div class="star">⭐</div>
-    <div class="star">⋆</div>
-    <div class="star">✦</div>
+  <!-- STAR FIELD -->
+  <div class="star-field">
+
+    <div class="star s1 yellow">✦</div>
+    <div class="star s2">⋆</div>
+    <div class="star s3 yellow">★</div>
+    <div class="star s4">✧</div>
+    <div class="star s5 green">✦</div>
+    <div class="star s6 yellow">⭐</div>
+    <div class="star s7">☆</div>
+    <div class="star s8 yellow">⋆</div>
+    <div class="star s9 green">✦</div>
+    <div class="star s10">✧</div>
+    <div class="star s11 yellow">⋆</div>
+    <div class="star s12">★</div>
+
+    <div class="dot d1"></div>
+    <div class="dot d2"></div>
+    <div class="dot d3"></div>
+    <div class="dot d4"></div>
+
   </div>
 
-  <main class="card">
-    <div class="little-stars">✦ ⋆｡°✩ ⭐️ ✩°｡⋆ ✦</div>
+  <main class="page">
 
-    <h1>Lucky Star<br>Club</h1>
+    <section class="clubhouse">
 
-    <div class="tagline">
-      dream. create. connect.
-    </div>
+      <div class="top-stars">
+        ✦ ⋆｡°✩ ⭐️ ✩°｡⋆ ✦
+      </div>
 
-    <p class="coming">
-      The clubhouse is under construction…<br>
-      Leave your e-mail below and we'll send you the invitation when we go cosmic.
-    </p>
+      <h1 class="title">
+        <span class="the">THE</span>
+        <span class="lucky">LUCKY STAR</span>
+        <span class="star-club">CLUB</span>
+      </h1>
 
-    <form class="signup">
-      <input type="email" placeholder="your email ✨" required>
-      <button type="submit">COUNT ME IN ⭐️</button>
-    </form>
+      <div class="tagline">
+        dream. create. connect.
+      </div>
 
-    <div class="footer">
-      ✦ count your lucky stars ✦
-    </div>
+      <div class="message-card">
+
+        <div class="tiny-top">
+          ✦ ☆ ✦ ☆ ✦
+        </div>
+
+        <p class="message">
+          The clubhouse is under construction…<br>
+          Leave your <strong>e-mail</strong> below and we'll send you
+          the invitation when we go cosmic.
+        </p>
+
+        <form class="signup">
+          <input
+            type="email"
+            placeholder="your star mail ✨"
+            aria-label="Your e-mail address"
+            required
+          >
+
+          <button type="submit">
+            COUNT ME IN ⭐️
+          </button>
+        </form>
+
+      </div>
+
+      <div class="count">
+        ✦ count your lucky stars ✦
+      </div>
+
+      <div class="bottom-stars">
+        ☆ ⋆｡𖦹°‧★ ⋆｡°✩ ⭐️ ✩°｡⋆ ★‧°𖦹｡⋆ ☆
+      </div>
+
+    </section>
+
   </main>
 
 </body>
